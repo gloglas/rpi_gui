@@ -28,19 +28,19 @@ So I implemented few scripts like Keystrokes->Duckyscript, Logitech dump with mo
 ## ‚öô Setup
 ### Hardware
 ![Layout](md_files/layout.png)
-#### Ì†ΩÌ≥ù Requirements:
+#### üìù Requirements:
 * Raspberry PI 0WH (02W untested)
 * SD card
 * [128x128 (1.44") Waveshare LCD HAT with joystick](https://www.waveshare.com/1.44inch-lcd-hat.htm)
 * [UPS Lite - 1000 mAh battery module](https://www.aliexpress.com/item/32954180664.html)
 * *optionally* [USB adapter](https://www.waveshare.com/pi-zero-usb-adapter.htm)
 
-#### Ì†ΩÌ∑° For logitech attacks
+#### üó° For logitech attacks
 * Any nRF52840 Dongle compatible with [LOGITacker firmware](https://github.com/RoganDawes/LOGITacker)
 * USB HUB
 * USB OTG cable
 
-#### Ì†ΩÌ¥® Hardware tips
+#### üî® Hardware tips
 
 If you are planning to use the USB adapter you cannot solder it straight to the RPI.
 
@@ -53,7 +53,7 @@ Instead solder new pins from bottom, with LCD had on them.
 
 ![Header fitment](md_files/header.png)
 
-### Ì†æÌ∑æ Software
+### üßæ Software
 
 Download latest [P4wnP1 aloa image](https://github.com/RoganDawes/P4wnP1_aloa/releases) on sdcard.
 
@@ -65,7 +65,7 @@ sudo ./rpi_gui/setup.sh
 
 If there are no errors just `reboot` your pi and you are set! 
 
-## Ì†ΩÌ≤æ Config
+## üíæ Config
 
 It can be saved/loaded from *options* menu.
 
@@ -101,7 +101,7 @@ It can be saved/loaded from *options* menu.
 }
 ```
 
-## Ì†ΩÌ≤ª Making your own menu
+## üíª Making your own menu
 
 The menu class has its own structure. I'll try to explain it to you the best I can.
 
@@ -168,7 +168,7 @@ def ShowInfo():
     m.which = m.which[:-1]
 ```
 
-### Ì†ΩÌ±ç Helper functions
+### üëç Helper functions
 #### Dialogs
 ##### Yes or No dialog
 ![YNDialog](md_files/dialog.png)
@@ -210,13 +210,13 @@ Returns: Name of the pressed button defined in json config.
 Arguments: Color you start with;
 Returns: `#RRGGBB`selected color in hex
 
-### Ì†ΩÌ≥ã TODO
+### üìã TODO
 * More features for Logitech stuff
 * Dump USB storage
 * Construct HID payloads
 * Terminal
 
-### Ì†ΩÌ≥ö Credits and sources
+### üìö Credits and sources
 * [Marcus Mengs](https://github.com/mame82) and [Rogan Dawes](https://github.com/RoganDawes) - [LOGITacker](https://github.com/RoganDawes/LOGITacker), [P4wnP1 ALOA](https://github.com/RoganDawes/P4wnP1_aloa), [Munifying](https://github.com/RoganDawes/munifying)
 * BeBoXoS - [OLED menu](https://github.com/beboxos/P4wnP1_ALOA_OLED_MENU_V2)
 * [UPS Lite repo](https://github.com/linshuqin329/UPS-Lite)
