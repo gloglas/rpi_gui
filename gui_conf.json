@@ -1,0 +1,29 @@
+{
+    "COLORS": {
+        "BACKGROUND": "#000000",
+        "BORDER": "#0e0e6b",
+        "GAMEPAD": "#141494",
+        "GAMEPAD_FILL": "#EEEEEE",
+        "SELECTED_TEXT": "#EEEEEE",
+        "SELECTED_TEXT_BACKGROUND": "#141494",
+        "TEXT": "#9c9ccc"
+    },
+    "PATHS": {
+        "ANALYZED_HID": "/root/rpi_gui/ducky/",
+        "ANALYZED_HID_LOGS": "/root/rpi_gui/log/",
+        "BASH_SCRIPTS": "/usr/local/P4wnP1/scripts/",
+        "HID": "/usr/local/P4wnP1/HIDScripts/",
+        "IMAGEBROWSER_START": "/root/",
+        "MUNIFYING": "/root/munifying/"
+    },
+    "PINS": {
+        "KEY1_PIN": 21,
+        "KEY2_PIN": 20,
+        "KEY3_PIN": 16,
+        "KEY_DOWN_PIN": 19,
+        "KEY_LEFT_PIN": 5,
+        "KEY_PRESS_PIN": 13,
+        "KEY_RIGHT_PIN": 26,
+        "KEY_UP_PIN": 6
+    }
+}
