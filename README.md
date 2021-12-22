@@ -49,7 +49,7 @@ You will need to place it under the UPS lite, because you will not be able to pl
 
 If you want smaller device you can shorten the pins on the raspberry pi. But I do not recommend it.
 
-Instead solder new pins from bottom, with LCD had on them.
+Instead solder new set of pins from bottom, with LCD placed on them.
 
 ![Header fitment](md_files/header.png)
 
@@ -63,9 +63,9 @@ git clone https://github.com/gloglas/rpi_gui
 sudo ./rpi_gui/setup.sh
 ```
 
-If there are no errors just `reboot` your pi and you are set! 
+If errors are not present just `reboot` your pi and you are set! 
 
-## 💾 Config
+## 💾 Config `gui_conf.json`
 
 It can be saved/loaded from *options* menu.
 
@@ -101,7 +101,7 @@ It can be saved/loaded from *options* menu.
 }
 ```
 
-## 💻 Making your own menu
+## 💻 Making your own menu and functions
 
 The menu class has its own structure. I'll try to explain it to you the best I can.
 
@@ -152,7 +152,7 @@ So If you want to add your own you just follow the example.
 
 Requires:
 
-* It is recommended to set where we are (basically just that we are not in menu) with - `m.which = m.which + "1"`
+* It is recommended to set location (basically just user is not in menu) with - `m.which = m.which + "1"`
 * Draw empty background - `color.DrawMenuBackground()`
 * Wait a few milliseconds so the user doesn't accidentally presses some button - `time.sleep(0.4)`
 * After leaving the function, set the location accordingly with - `m.which = m.which[:-1]`
@@ -188,7 +188,7 @@ Arguments: Text; Waits for user to click ok;
 ##### Scroll trought text (like in menu)
 `def GetMenuString(inlist,duplicates=False):`
 
-Arguments: List of strings with labels to show; if your lists contains duplicates (to show it properly);
+Arguments: List of strings with labels to show; bool, if your lists contains duplicates (to show the list properly);
 Returns: Selected `string` from array.
 
 ##### Show text without selection ("slide")
@@ -200,7 +200,7 @@ Returns: Index of selected slide (`-1` for none).
 ##### Wait for button press
 `def getButton():`
 
-Returns: Name of the pressed button defined in json config.
+Returns: Name of the pressed button (defined in json config).
 
 ##### RGB color picker
 ![Color picker](md_files/colors.png)
