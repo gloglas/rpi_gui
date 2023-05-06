@@ -15,6 +15,7 @@ if os.getuid() != 0:
 
 print("Hi! Display routine has started!")
 start_time = time.time()
+upslite = False
 
 ####### Classes except menu #######
 ### Global mostly static values ###
@@ -186,12 +187,16 @@ def charging():
 # One for updating status bar and one for refreshing display #
 def updateStats():
     global threads
-    if readCapacity(bus) < 5 or temp() > 70:
-        os.system("sync && poweroff")
+    if upslite:
+        if (readCapacity(bus) < 5 or temp() > 70):
+            os.system("sync && poweroff")
 
     draw.line([(0, 4), (128, 4)], fill="#222", width=10)
-    draw.text((0, 0), "%5i%%" % readCapacity(bus) + " %5.2fV" % readVoltage(bus) + "   " + ("N", "Y")
+    if upslite:
+        draw.text((0, 0), "%5i%%" % readCapacity(bus) + " %5.2fV" % readVoltage(bus) + "   " + ("N", "Y")
               [charging()] + "       " + str(temp()).split('.')[0] + " °C ", fill="WHITE", font=font)
+    else:
+        draw.text((0, 0),"                     " + str(temp()).split('.')[0] + " °C ", fill="WHITE", font=font)
     threads[0] = threading.Timer(5, updateStats)
     threads[0].start()
 def refreshDisplay():
@@ -1156,23 +1161,23 @@ def main():
             m.which = m.which[:-1]
 
 
-### Setup UPS Lite ###
-GPIO.setmode(GPIO.BCM)
-GPIO.setwarnings(False)
-#GPIO.setup(4, GPIO.IN)
-# Floating pin (Need to short contacts on UPS Lite)
-GPIO.setup(4, GPIO.IN, pull_up_down=GPIO.PUD_OFF)
+if upslite:
+    ### Setup UPS Lite ###
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setwarnings(False)
+    #GPIO.setup(4, GPIO.IN)
+    # Floating pin (Need to short contacts on UPS Lite)
+    GPIO.setup(4, GPIO.IN, pull_up_down=GPIO.PUD_OFF)
 
-upslite = True
-bus = None
-try:
-    bus = smbus.SMBus(1)
-except:
-    upslite = False
-PowerOnReset(bus)
-QuickStart(bus)
-readCapacity(bus)
-readVoltage(bus)
+    bus = None
+    try:
+        bus = smbus.SMBus(1)
+    except:
+        upslite = False
+    PowerOnReset(bus)
+    QuickStart(bus)
+    readCapacity(bus)
+    readVoltage(bus)
 
 ### Default values + LCD init ###
 default = Defaults()
@@ -1208,8 +1213,6 @@ m = DisposableMenu()
 ### Info ###
 print("I'm running on " + str(temp()).split('.')[0] + " °C.")
 print(time.strftime("%H:%M:%S"))
-if charging():
-    print("Yeey charging!")
 
 # Delay for logo
 time.sleep(2)
