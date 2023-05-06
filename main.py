@@ -196,7 +196,7 @@ def updateStats():
         draw.text((0, 0), "%5i%%" % readCapacity(bus) + " %5.2fV" % readVoltage(bus) + "   " + ("N", "Y")
               [charging()] + "       " + str(temp()).split('.')[0] + " °C ", fill="WHITE", font=font)
     else:
-	draw.text((0, 0),"                 " + str(temp()).split('.')[0] + " °C ", fill="WHITE", font=font)
+        draw.text((0, 0),"                     " + str(temp()).split('.')[0] + " °C ", fill="WHITE", font=font)
     threads[0] = threading.Timer(5, updateStats)
     threads[0].start()
 def refreshDisplay():
